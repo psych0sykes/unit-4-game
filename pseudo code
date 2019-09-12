@@ -1,0 +1,34 @@
+create fighters and their stats
+create enemies and their stats
+create variable for current user character
+creat variable for current enemy
+
+create char select bar in html and assign id's to each char
+
+write script to assign user char and move them to the "battle box" on click
+
+write script to randomly pick enemies to fill the enemy section
+
+wirte script to move enemy to battle box on click and reveal "attack" button
+
+script attack button to run battle functions 1 and 2
+
+battle function 1:
+    current enemy.health - user.attack
+    display attack amount
+    update enemy.health bar
+
+    if enemy health >1 then enemyDie
+
+battle function 2:
+    current user.health - enemy.attack
+    display attack amount
+    update user.health bar
+
+    if user.health >1 then userDie
+
+enemyDie
+    set current enemy to empty
+
+
+
