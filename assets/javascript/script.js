@@ -46,7 +46,7 @@ function setChar () {
         },
         char2 = {
             "name" : "pie",
-            "hp" : 80,
+            "hp" : 75,
             "attack" : 7,
             "counter" : 9,
             "isUser" : false,
@@ -56,7 +56,7 @@ function setChar () {
         },
         char3 = {
             "name" : "cookie",
-            "hp" : 70,
+            "hp" : 60,
             "attack" : 9,
             "counter" : 11,
             "isUser" : false,
