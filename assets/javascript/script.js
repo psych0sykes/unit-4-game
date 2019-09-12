@@ -70,6 +70,7 @@ function setChar () {
 function start () {
     $("#userDiv").empty();
     $("#enemyDiv").empty();
+    $("#charSelect").empty();
     
     setChar();
     increase = 0;
@@ -86,7 +87,7 @@ function start () {
         "counter" : 0,
         "hp" : 0,
     };
-
+    writeStats()
 
     for (var i = 0; i < char.length; i++) {
         var newDiv = $("<div>");
@@ -132,8 +133,8 @@ function ifDead () {
         enemy = {"isEnemy" : false}
         defeated++;
         $("#enemyDiv").empty();
-        $("#enemyAttack").empty();
-        $("#enemyHealth").empty();
+        $("#enemyAttack").text(0);
+        $("#enemyHealth").text(0);
         console.log("DEAD");
         console.log(defeated);
     }
