@@ -46,7 +46,7 @@ function setChar () {
             "attack" : 9,
             "counter" : 18,
             "isSelected" : false,
-            "isDead" : true,
+            "isDead" : false,
         }
     ];
 }
@@ -56,6 +56,12 @@ console.log(char[0]["name"])
 setChar()
 
 console.log(char[0]["name"])
+
+function selectChar (a) {
+    char[a]["isSelected"] = true;
+    console.log(char[a]["isSelected"])
+}
+
 
 function ifDead () {
     for (var i = 0; i < char.length; i++) {
