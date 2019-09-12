@@ -13,38 +13,45 @@ var char = [
     char3 = {
     }
 ];
+var user;
+var enemy;
+var increase;
 
 function setChar () {
     char = [
         char0 = {
             "name" : "char0",
-            "hp" : 40,
+            "hp" : 100,
             "attack" : 3,
-            "counter" : 6,
+            "counter" : 5,
+            "isUser" : false,
             "isSelected" : false,
             "isDead" : false,
         },
         char1 = {
             "name" : "char1",
-            "hp" : 35,
+            "hp" : 90,
             "attack" : 5,
-            "counter" : 10,
+            "counter" : 7,
+            "isUser" : false,
             "isSelected" : false,
             "isDead" : false,
         },
         char2 = {
             "name" : "char2",
-            "hp" : 30,
+            "hp" : 80,
             "attack" : 7,
-            "counter" : 14,
+            "counter" : 9,
+            "isUser" : false,
             "isSelected" : false,
             "isDead" : false,
         },
         char3 = {
             "name" : "char3",
-            "hp" : 25,
+            "hp" : 70,
             "attack" : 9,
-            "counter" : 18,
+            "counter" : 11,
+            "isUser" : false,
             "isSelected" : false,
             "isDead" : false,
         }
@@ -57,24 +64,41 @@ setChar()
 
 console.log(char[0]["name"])
 
-function selectChar (a) {
+function selectEnemy (a) {
     char[a]["isSelected"] = true;
-    console.log(char[a]["isSelected"])
+    enemy = char[a]
+    console.log(enemy)
+}
+function selectUser (a) {
+    char[a]["isUser"] = true;
+    user = char[a]
+    increase = user["attack"]
+    console.log(user)
 }
 
+selectUser(0)
+selectEnemy(1)
 
-function ifDead () {
-    for (var i = 0; i < char.length; i++) {
-        if (char[i]["isDead"]) {
-            console.log(char[i]["name"] + " is DEAD")
-        }
-        else {
-            console.log(char[i]["name"] + " is ALIVE")
-        }
-    }
-}
+// function ifDead () {
+//     for (var i = 0; i < char.length; i++) {
+//         if (char[i]["isDead"]) {
+//             console.log(char[i]["name"] + " is DEAD")
+//         }
+//         else {
+//             console.log(char[i]["name"] + " is ALIVE")
+//         }
+//     }
+// }
 
-ifDead ()
+function attack () {
+    enemy["hp"] = enemy["hp"] - user["attack"];
+    user["attack"] = user["attack"] + increase;
+    user["hp"] = user["hp"] - enemy["counter"];
+    console.log(user);
+    console.log(enemy);
+};
+
+attack();
 
 
 };
