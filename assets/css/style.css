@@ -1,0 +1,20 @@
+.icon>img {
+    width: 125px;
+    margin: 15px;
+}
+#enemyDiv {
+    background-color: pink;
+}
+#userDiv {
+    background-color: rgb(153, 248, 153);
+}
+.hstay {
+    height: 250px;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+button {
+    background-color: pink;
+}

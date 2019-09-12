@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Synth Swords 7</title>
 </head>
 <body>
@@ -13,8 +13,18 @@
     <div class="row">
         <div class="col-3"></div>
         <div class="col">
-            <div class="row" id="charSelect"></div>
-            <div class="row" id="fightZone"></div>
+            <div class="row hstay" id="charSelect"></div>
+            <div class="row hstay" id="fightZone">
+                <div id="userDiv" class="col"></div>
+                <div id="enemyDiv" class="col"></div>
+            </div>
+            <div class="row hstay">
+                <div id="userAttack"></div>
+                <div id="userHealth"></div>
+                <button id="attackButton">ATTACK</button>
+                <div id="enemyAttack"></div>
+                <div id="enemyHealth"></div>
+            </div>
         </div>
         <div class="col-3"></div>
     </div>
