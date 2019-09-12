@@ -112,18 +112,21 @@ function start () {
         }
         writeStats()
     });
-    
+
+    $("#pickText").text("Choose your Fighter!")
 };
 
 function selectEnemy (a) {
     char[a]["isEnemy"] = true;
     enemy = char[a];
+    $("#pickText").text("FIGHT!")
     console.log(enemy);
 }
 function selectUser (a) {
     char[a]["isUser"] = true;
     user = char[a];
     increase = user["attack"];
+    $("#pickText").text("Choose your Opponent!")
     console.log(user);
 }
 
@@ -135,6 +138,7 @@ function ifDead () {
         $("#enemyDiv").empty();
         $("#enemyAttack").text(0);
         $("#enemyHealth").text(0);
+        $("#pickText").text("Choose your Opponent!")
         console.log("DEAD");
         console.log(defeated);
     }
