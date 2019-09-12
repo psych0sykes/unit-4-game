@@ -19,8 +19,8 @@ var user = {
 var enemy = {
     "isEnemy" : false,
 };
-var increase;
-var defeated;
+var increase = 0;
+var defeated = 0;
 
 function setChar () {
     char = [
@@ -65,18 +65,27 @@ function setChar () {
             "img" : "assets/images/cookie.png"
         }
     ];
+};
+
+function start () {
+    $("#userDiv").empty();
+    $("#enemyDiv").empty();
+    
+    setChar();
+    increase = 0;
+    defeated = 0;
     user = null;
     enemy = null;
     user = {
         "isUser" : false,
+        "attack" : 0,
+        "hp" : 0,
     };
     enemy = {
         "isEnemy" : false,
+        "counter" : 0,
+        "hp" : 0,
     };
-};
-
-function start () {
-    setChar();
 
 
     for (var i = 0; i < char.length; i++) {
@@ -87,14 +96,23 @@ function start () {
         newDiv.attr("charNumber",[i])
         $("#charSelect").append(newDiv);
     }
+    $(".icon").click(function selector() {
+        console.log("click")
+    
+        if (user["isUser"] === false) {
+            var a = $(this).attr("charNumber")
+            selectUser(a)
+            $("#userDiv").append(this);
+        }
+        else if (enemy["isEnemy"] === false) {
+            var a = $(this).attr("charNumber")
+            selectEnemy(a)
+            $("#enemyDiv").append(this);
+        }
+        writeStats()
+    });
     
 };
-
-console.log(char[0]["name"]);
-
-setChar();
-
-console.log(char[0]["name"]);
 
 function selectEnemy (a) {
     char[a]["isEnemy"] = true;
@@ -114,7 +132,10 @@ function ifDead () {
         enemy = {"isEnemy" : false}
         defeated++;
         $("#enemyDiv").empty();
-        console.log("ifDead");
+        $("#enemyAttack").empty();
+        $("#enemyHealth").empty();
+        console.log("DEAD");
+        console.log(defeated);
     }
     if (user["hp"] < 1) {
         alert("LOSER");
@@ -124,36 +145,29 @@ function ifDead () {
 }
 
 function win () {
-    if (defeated === 3) {
+    if (defeated === (char.length - 1)) {
         alert("WINNER")
         start()
     }
+}
+function writeStats () {
+    $("#userAttack").text(user["attack"]);
+    $("#userHealth").text(user["hp"]);
+    $("#enemyAttack").text(enemy["counter"]);
+    $("#enemyHealth").text(enemy["hp"]);
 }
 
 function attack () {
     enemy["hp"] = enemy["hp"] - user["attack"];
     user["attack"] = user["attack"] + increase;
     user["hp"] = user["hp"] - enemy["counter"];
+    writeStats()
     console.log(user);
     console.log(enemy);
     ifDead();
 };
 
-start()
-
-$(".icon").click(function () {
-
-    if (user["isUser"] === false) {
-        var a = $(this).attr("charNumber")
-        selectUser(a)
-        $("#userDiv").append(this);
-    }
-    else if (enemy["isEnemy"] === false) {
-        var a = $(this).attr("charNumber")
-        selectEnemy(a)
-        $("#enemyDiv").append(this);
-    }
-});
+start();
 
 $("#attackButton").click(attack)
 
