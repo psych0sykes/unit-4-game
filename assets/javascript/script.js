@@ -159,6 +159,7 @@ function writeStats () {
 }
 
 function attack () {
+    if (enemy["isEnemy"] === true){
     enemy["hp"] = enemy["hp"] - user["attack"];
     user["attack"] = user["attack"] + increase;
     user["hp"] = user["hp"] - enemy["counter"];
@@ -166,6 +167,7 @@ function attack () {
     console.log(user);
     console.log(enemy);
     ifDead();
+    };
 };
 
 start();
